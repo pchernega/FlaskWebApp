@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+</head>
+<body>
+    {% block content %}
+    <p>Choose file designation (use name 'target' for target column)</p>
+    <form method='post' action='/result' enctype='multipart/form-data'>
+        <p><input type='file' required name='file'></p>
+        <p><input type='submit' value='Ok'></p>
+    </form>
+    {% endblock %}
+</body>
+</html>
