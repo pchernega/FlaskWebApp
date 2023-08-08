@@ -12,6 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: test-secret-vars-text-quotes
-      run: echo SOME_SECRET_KEY=${{ secrets.SOME_SECRET_KEY }}; \
-           echo SOME_ENV_VAR_WITH_QUOTES=${{ vars.SOME_ENV_VAR_WITH_QUOTES }}; \
-           echo SOME_ENV_VAR_WITHOUT_QUOTES=${{ vars.SOME_ENV_VAR_WITHOUT_QUOTES }};
+      run: echo SOME_SECRET_KEY=${{ secrets.SOME_SECRET_KEY }}; echo SOME_ENV_VAR_WITH_QUOTES=${{ vars.SOME_ENV_VAR_WITH_QUOTES }}; echo SOME_ENV_VAR_WITHOUT_QUOTES=${{ vars.SOME_ENV_VAR_WITHOUT_QUOTES }};
