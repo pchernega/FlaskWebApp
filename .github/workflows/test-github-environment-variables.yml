@@ -1,0 +1,15 @@
+name: environment-vars-test
+
+on:
+  push:
+    branches:
+    - develop
+  workflow_dispatch:
+
+jobs:
+  create-env-files:    
+    environment: dev
+    runs-on: ubuntu-latest
+    steps:
+    - name: test-secret-vars-text-quotes
+      run: echo SOME_SECRET_KEY=${{ secrets.SOME_SECRET_KEY }}
