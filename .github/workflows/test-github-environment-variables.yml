@@ -23,7 +23,7 @@ jobs:
   read-env-files-from-another-job:
     name: another job
     needs: create-env-files
-    runs-on: ${{needs.get-runner.outputs.RUNNER}}
+    runs-on: ${{needs.create-env-files.outputs.RUNNER}}
     steps:
     - name: print-env-var
       run: cat .env;
