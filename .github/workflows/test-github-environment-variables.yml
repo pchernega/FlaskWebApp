@@ -10,8 +10,20 @@ jobs:
   create-env-files:    
     environment: dev
     runs-on: ubuntu-latest
+    outputs:
+     RUNNER: ${{ runner.name }}
     steps:
     - name: test-secret-vars-text-quotes
       run: echo SOME_ENV_VAR_WITH_QUOTES=${{ vars.SOME_ENV_VAR_WITH_QUOTES }} >> .env;
         echo SOME_SECRET_KEY=${{ secrets.SOME_SECRET_KEY }} >> .env; 
         cat .env;
+    - name: output-runnter-name
+      run: echo "selected runner = ${{ runner.name }}"
+  
+  read-env-files-from-another-job:
+    name: another job
+    needs: create-env-files
+    runs-on: ${{needs.get-runner.outputs.RUNNER}}
+    steps:
+    - name: print-env-var
+      run: cat .env;
